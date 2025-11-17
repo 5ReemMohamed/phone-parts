@@ -813,3 +813,10 @@ h2 {
   display: inline-block;
   border-radius: 5px;
 }
+
+.modal-body strong{
+  color: #5b356d;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0px 6px;
+}

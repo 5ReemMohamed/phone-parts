@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الاوردرات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+    <header id="header" class="header fixed-top">
+        <nav class="navbar navbar-expand-lg px-3">
+            <div class="container-fluid container-lg">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text-accent">اشرف الخوالدة</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto d-flex gap-3 gap-lg-2 mt-3 mt-lg-0 py-3">
+                        <li class="nav-item"><a class="nav-link active" href="index.html#home" data-en="Home"
+                                data-ar="الرئيسية">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#mobileCompany">شركة الموبايلات</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="parts.html">المتجر</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#whyUs">لماذا نحن</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact" data-en="Contact"
+                                data-ar="اتصل بنا">اتصل بنا</a></li>
+                    </ul>
+                    <div class="px-lg-4">
+                        <div
+                            class="icon-wrapper d-flex gap-4 py-3 py-lg-0 justify-content-center justify-content-lg-start">
+                            <div>
+                                <a href="wishlist.html" class="btn btn-danger btn-lg"><i class="fa-regular fa-heart fa-lg"
+                                        title="Wishlist"></i></a>
+                            </div>
+                            <div>
+                                <a href="cart.html" class="btn btn-danger btn-lg"> <i
+                                        class="fa-solid fa-cart-shopping fa-lg" title="Cart"></i></a>
+                            </div>
+                            <div>
+                                <a href="#orders" class="btn btn-danger btn-lg"> <i class="fa-solid fa-receipt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="py-5 mt-5" id="orders">
+        <div class="container py-5 mt-5">
+
+            <h2 class="text-center mb-4">سجل الطلبات</h2>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center align-middle" data-aos="fade-up" data-aos-delay="100">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم المنتج</th>
+                            <th>تاريخ البيع</th>
+                            <th>الكمية</th>
+                            <th>السعر الإجمالي</th>
+                            <th>حالة الطلب</th>
+                            <th>تفاصيل</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td> شاشة iPhone 11</td>
+                            <td>2024-11-10</td>
+                            <td>3</td>
+                            <td>75 دينار</td>
+                            <td><span class="badge bg-success">مكتمل</span></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#order1Modal">
+                                    عرض التفاصيل
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td> شاشة iPhone 11</td>
+                            <td>2024-11-10</td>
+                            <td>3</td>
+                            <td>75 دينار</td>
+                            <td><span class="badge bg-success">مكتمل</span></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#order1Modal">
+                                    عرض التفاصيل
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td> شاشة iPhone 11</td>
+                            <td>2024-11-12</td>
+                            <td>1</td>
+                            <td>35 دينار</td>
+                            <td><span class="badge bg-warning text-dark">قيد المعالجة</span></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#order2Modal">
+                                    عرض التفاصيل
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td> شاشة iPhone 11</td>
+                            <td>2024-11-12</td>
+                            <td>1</td>
+                            <td>35 دينار</td>
+                            <td><span class="badge bg-warning text-dark">قيد المعالجة</span></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#order2Modal">
+                                    عرض التفاصيل
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="order1Modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content" style="direction: rtl; text-align: right;">
+                    <div class="modal-header">
+                        <h5 class="modal-title">تفاصيل الطلب</h5>
+                        <button type="button" class="btn-close m-0" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="text-center mb-3">
+                            <img src="images/iphone.png" alt="صورة المنتج"
+                                style="width: 120px; height: auto; border-radius: 8px; border: 1px solid #ddd;">
+                        </div>
+
+                        <p><strong>اسم المنتج:</strong> شاشة iPhone 11</p>
+                        <p><strong>الوصف:</strong> قطعة غيار أصلية بجودة ممتازة</p>
+                        <p><strong>السعر:</strong> 75 دينار</p>
+                        <p><strong>التاريخ:</strong> 2024-11-10</p>
+                        <p><strong>الحالة:</strong> مكتمل</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="order2Modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>تفاصيل الطلب</h5>
+                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center mb-3">
+                            <img src="images/iphone.png" alt="صورة المنتج"
+                                style="width: 120px; height: auto; border-radius: 8px; border: 1px solid #ddd;">
+                        </div>
+                        <p><strong>اسم المنتج:</strong> بطارية iPhone XR</p>
+                        <p><strong>الوصف:</strong> قطعة غيار أصلية بجودة ممتازة</p>
+                        <p><strong>السعر:</strong> 35 دينار</p>
+                        <p><strong>التاريخ:</strong> 2024-11-12</p>
+                        <p><strong>الحالة:</strong> قيد المعالجة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-3 text-center bg-dark text-white">
+        <div class="container">
+            <div>
+                <p>اشراف الخوالده لقطع غيار الموبايلات</p>
+            </div>
+            <div>
+                &copy; جميع الحقوق محفوظه 2025
+            </div>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
