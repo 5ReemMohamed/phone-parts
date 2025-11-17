@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Devices Parts Stroe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <header id="header" class="header fixed-top">
+        <nav class="navbar navbar-expand-lg px-3">
+            <div class="container-fluid container-lg">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text-accent">اشرف الخوالدة</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto d-flex gap-3 gap-lg-2 mt-3 mt-lg-0 py-3">
+                        <li class="nav-item"><a class="nav-link active" href="index.html#home" data-en="Home"
+                                data-ar="الرئيسية">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#mobileCompany">شركة الموبايلات</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#products">المتجر</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#whyUs">لماذا نحن</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact" data-en="Contact"
+                                data-ar="اتصل بنا">اتصل بنا</a></li>
+                    </ul>
+                    <div class="px-lg-4">
+                        <div class="icon-wrapper d-flex gap-4 py-3 py-lg-0 justify-content-center justify-content-lg-start">
+                            <div>
+                                <a href="wishlist.html" class="btn btn-danger btn-lg"><i
+                                        class="fa-regular fa-heart fa-lg" title="Wishlist"></i></a>
+                            </div>
+                            <div>
+                                <a href="cart.html" class="btn btn-danger btn-lg"> <i
+                                        class="fa-solid fa-cart-shopping fa-lg" title="Cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="shop-hero  d-flex flex-column gap-4 justify-content-center">
+        <div class="container">
+            <div class="heading" data-aos="fade-up" data-aos-delay="100">
+                <div class="row g-4 justify-content-center align-items-center">
+                    <div class="col-lg-8">
+                        <div class="content mt-5">
+                            <h2 class="mb-3 text-white">متجرنا</h2>
+                            <p> نوفر لك مجموعة مميزة من قطع غيار الموبايلات بجودة موثوقة وأسعار تنافسية، مع توفر مختلف
+                                الموديلات
+                                والمكونات التي تلبي احتياجات الفنيين ومراكز الصيانة. هدفنا هو تقديم تجربة شراء سهلة
+                                وسريعة مع منتجات
+                                مضمونة الأداء.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="parts" id="products">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <div class="col-12 d-md-none text-end py-3">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+                        ☰ شركات الموبايل
+                    </button>
+                </div>
+                <div class="col-12 col-md-3 col-lg-2">
+                    <div class="collapse d-md-block h-100" id="sidebarMenu">
+                        <div class="sidebar py-1 py-md-4 h-100 px-2">
+                            <h5 class="text-center mt-5 mb-5">شركات الموبايل</h5>
+
+                            <button class="btn btn-light brand-btn w-100 mb-2"
+                                onclick="showParts('apple', this)">Apple</button>
+                            <button class="btn btn-light brand-btn w-100 mb-2"
+                                onclick="showParts('samsung', this)">Samsung</button>
+                            <button class="btn btn-light brand-btn w-100 mb-2"
+                                onclick="showParts('xiaomi', this)">Xiaomi</button>
+                            <button class="btn btn-light brand-btn w-100 mb-2"
+                                onclick="showParts('huawei', this)">Huawei</button>
+
+                            <div id="parts-container" class="mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9 col-lg-10 p-4">
+                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="100">المنتجات</h2>
+                    <div id="products-container" class="row g-4" data-aos="fade-up" data-aos-delay="100"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+  <footer class="py-3 text-center bg-dark text-white">
+        <div class="container">
+            <div>
+                <p>اشراف الخوالده لقطع غيار الموبايلات</p>
+            </div>
+            <div>
+                &copy; جميع الحقوق محفوظه 2025
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/parts.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة المفضلات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+    <header id="header" class="header fixed-top">
+        <nav class="navbar navbar-expand-lg px-3">
+            <div class="container-fluid container-lg">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text-accent">اشرف الخوالدة</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto d-flex gap-3 gap-lg-2 mt-3 mt-lg-0 py-3">
+                        <li class="nav-item"><a class="nav-link active" href="index.html#home" data-en="Home"
+                                data-ar="الرئيسية">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#mobileCompany">شركة الموبايلات</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="parts.html">المتجر</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#whyUs">لماذا نحن</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact" data-en="Contact"
+                                data-ar="اتصل بنا">اتصل بنا</a></li>
+                    </ul>
+                    <div class="px-lg-4">
+                        <div
+                            class="icon-wrapper d-flex gap-4 py-3 py-lg-0 justify-content-center justify-content-lg-start">
+                            <div>
+                                <a href="#wishlist" class="btn btn-danger btn-lg"><i class="fa-regular fa-heart fa-lg"
+                                        title="Wishlist"></i></a>
+                            </div>
+                            <div>
+                                <a href="cart.html" class="btn btn-danger btn-lg"> <i
+                                        class="fa-solid fa-cart-shopping fa-lg" title="Cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="py-5 mt-5" id="wishlist">
+        <div class="container py-5">
+            <h2 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="100">قائمة المفضلات</h2>
+            <div class="row g-4" id="wishlist-body" data-aos="fade-up" data-aos-delay="100"></div>
+        </div>
+    </section>
+
+    <footer class="py-3 text-center bg-dark text-white">
+        <div class="container">
+            <div>
+                <p>اشراف الخوالده لقطع غيار الموبايلات</p>
+            </div>
+            <div>
+                &copy; جميع الحقوق محفوظه 2025
+            </div>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        let wishlist = [
+            { name: "شاشة iPhone 12", image: "images/iphone.png", price: 1200, brand: "Apple" },
+            { name: "بطارية Redmi 8", image: "images/iphone.png", price: 300, brand: "Xiaomi" }
+        ];
+
+        let cart = [];
+
+        function renderWishlist() {
+            const container = document.getElementById('wishlist-body');
+            container.innerHTML = "";
+
+            wishlist.forEach((item, index) => {
+                const col = document.createElement('div');
+                col.classList.add('col-12', 'col-md-6', 'col-lg-4');
+                col.innerHTML = `
+            <div class="product-card position-relative">
+                <div class="remove position-absolute top-0 start-0 z-2">
+                <button class="wishlist-btn" title="حذف من المفضلة" data-index="${index}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                </div>
+                <div class="product-img">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="product-info">
+                    <h3 class="title">${item.name}</h3>
+                    <div><span class="kind">${item.brand}</span></div>
+                    <p class="text-muted">قطعة غيار أصلية بجودة ممتازة</p>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <div class="price">
+                            <p>${item.price} ج.م</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-success btn-sm add-cart-btn" data-index="${index}">أضف إلى السلة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+                container.appendChild(col);
+            });
+
+            addListeners();
+        }
+
+        function addListeners() {
+            document.querySelectorAll('.wishlist-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const idx = btn.dataset.index;
+                    wishlist.splice(idx, 1);
+                    renderWishlist();
+                };
+            });
+
+            document.querySelectorAll('.add-cart-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const idx = btn.dataset.index;
+                    cart.push({ ...wishlist[idx], quantity: 1 });
+                    alert(`${wishlist[idx].name} تم إضافته إلى السلة!`);
+                    renderWishlist();
+                };
+            });
+        }
+        renderWishlist();
+    </script>
+
+</body>
+
+</html>

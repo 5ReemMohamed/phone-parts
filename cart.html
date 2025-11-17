@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة التسوق</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="bg-light">
+    <header id="header" class="header fixed-top">
+        <nav class="navbar navbar-expand-lg px-3">
+            <div class="container-fluid container-lg">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text-accent">اشرف الخوالدة</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto d-flex gap-3 gap-lg-2 mt-3 mt-lg-0 py-3">
+                        <li class="nav-item"><a class="nav-link active" href="index.html#home" data-en="Home"
+                                data-ar="الرئيسية">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#mobileCompany">شركة الموبايلات</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="parts.html">المتجر</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#whyUs">لماذا نحن</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact" data-en="Contact"
+                                data-ar="اتصل بنا">اتصل بنا</a></li>
+                    </ul>
+                    <div class="px-lg-4">
+                        <div class="icon-wrapper d-flex gap-4 py-3 py-lg-0 justify-content-center justify-content-lg-start">
+                            <div>
+                                <a href="wishlist.html" class="btn btn-danger btn-lg"><i
+                                        class="fa-regular fa-heart fa-lg" title="Wishlist"></i></a>
+                            </div>
+                            <div>
+                                <a href="#cart" class="btn btn-danger btn-lg"> <i
+                                        class="fa-solid fa-cart-shopping fa-lg" title="Cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="py-5 mt-5" id="cart">
+        <div class="cart-container">
+            <h2 class="mb-5 text-center py-5" data-aos="fade-up" data-aos-delay="100">سلة التسوق</h2>
+
+            <table class="table cart-table mt-5" data-aos="fade-up" data-aos-delay="100">
+                <thead>
+                    <tr>
+                        <th>الصورة</th>
+                        <th> اسم المنتج</th>
+                        <th>السعر</th>
+                        <th>الكمية</th>
+                        <th>الإجمالي</th>
+                        <th>إزالة</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body"></tbody>
+            </table>
+
+            <div class="d-flex justify-content-between align-items-center mt-4 flex-column flex-md-row gap-3">
+                <div class="cart-total">الإجمالي: <span id="cart-total">0</span> ج.م</div>
+                <button class="btn checkout-btn" id="checkout-btn" data-bs-toggle="modal"
+                    data-bs-target="#paymentModal">الدفع</button>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">اختيار طريقة الدفع</h5>
+                    <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="payment-option" onclick="pay('فيزا / ماستر كارد')">فيزا / ماستر كارد</div>
+                    <div class="payment-option" onclick="pay('فوري')">فوري</div>
+                    <div class="payment-option" onclick="pay('محفظة إلكترونية')">محفظة إلكترونية</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <footer class="py-3 text-center bg-dark text-white">
+        <div class="container">
+            <div>
+                <p>اشراف الخوالده لقطع غيار الموبايلات</p>
+            </div>
+            <div>
+                &copy; جميع الحقوق محفوظه 2025
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        let cart = [
+            { name: "شاشة iPhone 12", image: "images/iphone.png", price: 1200, quantity: 1 },
+            { name: "بطارية Redmi 8", image: "images/iphone.png", price: 300, quantity: 2 }
+        ];
+
+        function renderCart() {
+            const cartBody = document.getElementById('cart-body');
+            cartBody.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+            <td><img src="${item.image}" alt="${item.name}"></td>
+            <td>
+                <span>${item.name}</span>
+            </td>
+            <td>${item.price}</td>
+            <td>
+                <div class="qty-control">
+                    <button class="btn btn-outline-secondary btn-sm decrease mx-1" data-index="${index}">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="btn btn-outline-secondary btn-sm increase mx-1" data-index="${index}">+</button>
+                </div>
+            </td>
+            <td class="item-total">${itemTotal}</td>
+            <td><i class="fas fa-trash remove-btn" data-index="${index}"></i></td>
+        `;
+                cartBody.appendChild(tr);
+            });
+
+            document.getElementById('cart-total').textContent = total;
+
+            addCartListeners();
+        }
+
+        function addCartListeners() {
+            document.querySelectorAll('.increase').forEach(btn => {
+                btn.onclick = () => {
+                    const idx = btn.dataset.index;
+                    cart[idx].quantity++;
+                    renderCart();
+                };
+            });
+
+            document.querySelectorAll('.decrease').forEach(btn => {
+                btn.onclick = () => {
+                    const idx = btn.dataset.index;
+                    if (cart[idx].quantity > 1) cart[idx].quantity--;
+                    renderCart();
+                };
+            });
+
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const idx = btn.dataset.index;
+                    cart.splice(idx, 1);
+                    renderCart();
+                };
+            });
+        }
+
+        function pay(method) {
+            alert("تم اختيار طريقة الدفع: " + method + "\nالإجمالي: " + document.getElementById('cart-total').textContent + " ج.م");
+            const modalEl = document.getElementById('paymentModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            modal.hide();
+            cart = [];
+            renderCart();
+        }
+
+        renderCart();
+    </script>
+</body>
+
+</html>
