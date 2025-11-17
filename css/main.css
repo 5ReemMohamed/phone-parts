@@ -795,8 +795,21 @@ h2 {
   font-size: 23px;
 }
 .contact .card a:hover{
-  color: #7d4b96;
+  color: hsl(280, 33%, 44%);
 }
 .navbar-toggler i{
   color: #513061;
+}
+
+.contact .card h3{
+  color: #5c2e74;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+}
+.contact .content p{
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 5px;
 }
