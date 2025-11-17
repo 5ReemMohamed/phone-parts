@@ -472,7 +472,7 @@ h2 {
 }
 @media screen and (max-width: 423px) {
   .product-img img {
-    width: 170%;
+    width: 150%;
   }
 
   .product-img.img-4 img {
